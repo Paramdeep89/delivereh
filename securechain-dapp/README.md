@@ -1,5 +1,85 @@
 # Getting Started with Create React App
 
+# 🚛 SecureChain by Delivereh
+
+**SecureChain** is a decentralized cargo registration and access control system built by **Delivereh** to bring trust, transparency, and tamper-proof logistics to last-mile delivery. Built at the #EasyAConsensusHackathon, SecureChain enforces cargo policies on-chain using a **simulated Forte Rules Engine (FRE)** and role-based permissions.
+
+> 🔐 Built with Solidity + React + Simulated FRE compatibility
+
+---
+
+## 🔍 Features
+
+- ✅ **Driver Verification** – only verified drivers can register cargo
+- ✅ **Cargo Locking** – inspectors can lock cargo flagged for review
+- ✅ **Stablecoin Deposit Enforcement** – minimum collateral required for access
+- ✅ **Weight-Based Restrictions** – cargo over threshold is rejected
+- ✅ **Tamper-Proof History** – every status change is immutably recorded on-chain
+- ✅ **Role Management** – admin can assign/revoke Driver or Inspector roles
+- ✅ **Simulated FRE** – `PolicyEvaluator` contract mimics Forte’s rule evaluation logic
+
+---
+
+## 🧠 Tech Stack
+
+| Layer | Tech |
+|-------|------|
+| Smart Contracts | Solidity (EVM-compatible), Hardhat |
+| Frontend        | React, Ethers.js, MetaMask |
+| Policy Engine   | Simulated Forte Rules Engine (`PolicyEvaluator.sol`) |
+| Network         | Hardhat local development chain (Chain ID: 31337) |
+
+---
+
+## 💡 Architecture
+
+### 1. `SecureChain.sol`
+Manages:
+- Role-based access (`assignRole`, `revokeRole`)
+- Cargo registration
+- Cargo status updates
+- Inspector-initiated cargo locks
+- On-chain event log (cargo history)
+
+### 2. `PolicyEvaluator.sol`
+Simulates FRE logic:
+- `evaluate(address, weight)` checks if:
+  - Driver is verified
+  - Cargo weight ≤ 1000kg
+  - Stablecoin deposit ≥ 100 units
+
+---
+
+## 🖥️ React Frontend Components
+
+| Component           | Purpose |
+|---------------------|---------|
+| `WalletConnect`     | Connect MetaMask wallet |
+| `RoleActions`       | Assign or revoke roles (Admin only) |
+| `VerifyDriver`      | Mark a driver as verified (Admin only) |
+| `DepositStablecoin` | Fund stablecoin deposit for a driver (Admin only) |
+| `CargoRegister`     | Register new cargo (Verified Drivers only) |
+| `UpdateCargoStatus` | Update cargo status to `InTransit`, `Delivered`, or `Locked` |
+| `LockCargo`         | Inspectors can directly lock cargo |
+| `CargoHistory`      | View event history for any cargo ID |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- MetaMask
+- Hardhat
+
+### Clone & Install
+
+```bash
+git clone https://github.com/your-username/securechain-dapp.git
+cd securechain-dapp
+npm install
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
