@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-# 🚛 SecureChain by Delivereh
+# 🚛 SecureChain by delivereh.
 
 **SecureChain** is a decentralized cargo registration and access control system built by **Delivereh** to bring trust, transparency, and tamper-proof logistics to last-mile delivery. Built at the #EasyAConsensusHackathon, SecureChain enforces cargo policies on-chain using a **simulated Forte Rules Engine (FRE)** and role-based permissions.
 
